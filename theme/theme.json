@@ -1,0 +1,680 @@
+{
+    "extensions": [
+        {
+            "names": ["default"],
+            "filename": "extension_default.png"
+        },
+        {
+            "names": ["py"],
+            "filename": "extension_python.png"
+        },
+        {
+            "names": ["go"],
+            "filename": "extension_go.png"
+        },
+        {
+            "names": ["jar", "java"],
+            "filename": "extension_java.png"
+        },
+        {
+            "names": ["c"],
+            "filename": "extension_c.png"
+        },
+        {
+            "names": ["cpp"],
+            "filename": "extension_cpp.png"
+        },
+        {
+            "names": ["html"],
+            "filename": "extension_html.png"
+        },
+        {
+            "names": ["json"],
+            "filename": "extension_json.png"
+        },
+        {
+            "names": ["cs"],
+            "filename": "extension_csharp.png"
+        },
+        {
+            "names": ["as"],
+            "filename": "extension_actionscript.png"
+        },
+        {
+            "names": ["js"],
+            "filename": "extension_js.png"
+        },
+        {
+            "names": ["ai"],
+            "filename": "extension_ai.png"
+        },
+        {
+            "names": ["ts"],
+            "filename": "extension_typescript.png"
+        },
+        {
+            "names": ["asp"],
+            "filename": "extension_asp.png"
+        },
+        {
+            "names": ["asps", "ascx"],
+            "filename": "extension_asp.png"
+        },
+        {
+            "names": ["babel"],
+            "filename": "file_babel.png"
+        },
+        {
+            "names": ["swf", "swc"],
+            "filename": "extension_flash.png"
+        },
+        {
+            "names": ["css"],
+            "filename": "extension_css.png"
+        },
+        {
+            "names": ["hpp"],
+            "filename": "extension_cppheader.png"
+        },
+        {
+            "names": ["clj", "cljs", "cljc", "edn"],
+            "filename": "extension_clojure.png"
+        },
+        {
+            "names": ["sketch"],
+            "filename": "extension_sketch.png"
+        },
+        {
+            "names": ["r", "rdata", "rds", "rda"],
+            "filename": "extension_r.png"
+        },
+        {
+            "names": ["php", "php3", "php4", "php5", "phar", "phps", "phtml"],
+            "filename": "extension_php.png"
+        },
+        {
+            "names": ["pl", "pm", "cgi"],
+            "filename": "extension_perl.png"
+        },
+        {
+            "names": ["pdf"],
+            "filename": "extension_pdf.png"
+        },
+        {
+            "names": ["nim"],
+            "filename": "extension_nim.png"
+        },
+        {
+            "names": ["lisp"],
+            "filename": "extension_lisp.png"
+        },
+        {
+            "names": ["jl"],
+            "filename": "extension_julia.png"
+        },
+        {
+            "names": ["jinja", "jinja2"],
+            "filename": "extension_jinja.png"
+        },
+        {
+            "names": ["vert", "tesc", "tese", "geom", "frag", "comp"],
+            "filename": "extension_glsl.png"
+        },
+        {
+            "names": ["less"],
+            "filename": "extension_less.png"
+        },
+        {
+            "names": ["xlsx", "xlsm", "xltx", "xltm", "xls", "xlt", "xlm", "xlsb", "xla", "xlam", "xll", "xlw"],
+            "filename": "extension_excel.png"
+        },
+        {
+            "names": ["doc", "dot", "wbk", "docx", "docm", "dotx", "dotm", "docb"],
+            "filename": "extension_word.png"
+        },
+        {
+            "names": ["ppt", "pot", "pps", "pptx", "pptm", "potx", "potm", "ppam", "ppsx", "ppsm", "sldx", "sldm"],
+            "filename": "extension_powerpoint.png"
+        },
+        {
+            "names": ["cfg", "config"],
+            "filename": "extension_config.png"
+        },
+        {
+            "names": ["bat"],
+            "filename": "extension_bat.png"
+        },
+        {
+            "names": ["db"],
+            "filename": "extension_db.png"
+        },
+        {
+            "names": ["pyx", "pyd"],
+            "filename": "extension_cython.png"
+        },
+        {
+            "names": ["zip", "rar", "7z", "tar", "gz", "bzip2", "xz", "bz2"],
+            "filename": "extension_zip.png"
+        },
+        {
+            "names": ["yaml", "yml"],
+            "filename": "extension_yaml.png"
+        },
+        {
+            "names": ["xsl"],
+            "filename": "extension_xsl.png"
+        },
+        {
+            "names": ["xml", "pex", "tmlanguage"],
+            "filename": "extension_xml.png"
+        },
+        {
+            "names": ["vue"],
+            "filename": "extension_vue.png"
+        },
+        {
+            "names": [
+                "3g2", "3gp", "asf", "amv", "avi", "divx", "qt", "f4a", "f4b",
+                "f4p", "f4v", "flv", "m2v", "m4v", "mkv", "mk3d", "mov", "mp2",
+                "mp4", "mpe", "mpeg", "mpeg2", "mpg", "mpv", "nsv", "ogv", "rm",
+                "rmvb", "svi", "vob", "webm", "wmv"
+            ],
+            "filename": "extension_video.png"
+        },
+        {
+            "names": ["vb"],
+            "filename": "extension_vb.png"
+        },
+        {
+            "names": ["toml"],
+            "filename": "extension_toml.png"
+        },
+        {
+            "names": ["txt", "text"],
+            "filename": "extension_text.png"
+        },
+        {
+            "names": ["tex"],
+            "filename": "extension_tex.png"
+        },
+        {
+            "names": ["tcl", "exp"],
+            "filename": "extension_tcl.png"
+        },
+        {
+            "names": ["swift"],
+            "filename": "extension_swift.png"
+        },
+        {
+            "names": ["svg"],
+            "filename": "extension_svg.png"
+        },
+        {
+            "names": ["sql"],
+            "filename": "extension_sql.png"
+        },
+        {
+            "names": ["sln"],
+            "filename": "extension_sln.png"
+        },
+        {
+            "names": ["shell", "sh", "bash", "zsh", "tcsh", "csh"],
+            "filename": "extension_shell.png"
+        },
+        {
+            "names": ["woff", "woff2", "ttf", "otf", "eot", "pfa", "pfb", "sfd"],
+            "filename": "extension_font.png"
+        },
+        {
+            "names": ["jpeg", "jpg", "gif", "png", "bmp", "tiff", "ico"],
+            "filename": "extension_image.png"
+        },
+        {
+            "names": ["rb"],
+            "filename": "extension_ruby.png"
+        },
+        {
+            "names": ["scala"],
+            "filename": "extension_scala.png"
+        },
+        {
+            "names": ["rs"],
+            "filename": "extension_rust.png"
+        }
+    ],
+    "files": [
+        {
+            "names": ["default"],
+            "filename": "file_default.png"
+        },
+        {
+            "names": [".angular-cli.json", "angular-cli.json", "angular.json", ".angular.json"],
+            "filename": "file_angular.png"
+        },
+        {
+            "names": ["ansible.cfg", ".ansible.cfg"],
+            "filename": "file_ansible.png"
+        },
+        {
+            "names": [".babelrc", "babelrc.js", ".babelrc.js", "babel.config.js", ".babelignore"],
+            "filename": "file_babel.png"
+        },
+        {
+            "names": [".bowerrc", "bower.json"],
+            "filename": "file_bower.png"
+        },
+        {
+            "names": ["gulpfile", "gulpfile.babel"],
+            "filename": "file_gulp.png"
+        },
+        {
+            "names": [".editorconfig"],
+            "filename": "file_editorconfig.png"
+        },
+        {
+            "names": ["css.map"],
+            "filename": "file_cssmap.png"
+        },
+        {
+            "names": ["robots.txt"],
+            "filename": "file_robots.png"
+        },
+        {
+            "names": ["pipfile", "pipfile.lock"],
+            "filename": "file_pip.png"
+        },
+        {
+            "names": ["nginx.conf"],
+            "filename": "file_nginx.png"
+        },
+        {
+            "names": ["sqlite", "sqlite3", "db3"],
+            "filename": "file_sqlite.png"
+        },
+        {
+            "names": [".gitlab-ci.yml"],
+            "filename": "file_gitlab.png"
+        },
+        {
+            "names": ["codecov.yml", ".codecov.yml"],
+            "filename": "file_codecov.png"
+        },
+        {
+            "names": ["circle.yml"],
+            "filename": "file_circleci.png"
+        },
+        {
+            "names": [".yo-rc.json"],
+            "filename": "file_yeoman.png"
+        },
+        {
+            "names": [
+                "yarn.lock",
+                ".yarnrc",
+                ".yarnclean",
+                ".yarn-integrity",
+                ".yarn-metadata.json",
+                ".yarnignore"
+            ],
+            "filename": "file_yarn.png"
+        },
+        {
+            "names": [
+                "webpack.base.conf",
+                "webpack.common",
+                "webpack.config",
+                "webpack.config.base",
+                "webpack.config.common",
+                "webpack.config.dev",
+                "webpack.config.development",
+                "webpack.config.staging",
+                "webpack.config.test",
+                "webpack.config.prod",
+                "webpack.config.production",
+                "webpack.config.babel",
+                "webpack.config.base.babel",
+                "webpack.config.common.babel",
+                "webpack.config.dev.babel",
+                "webpack.config.development.babel",
+                "webpack.config.staging.babel",
+                "webpack.config.test.babel",
+                "webpack.config.prod.babel",
+                "webpack.config.production.babel",
+                "webpack.dev",
+                "webpack.dev.conf",
+                "webpack.prod",
+                "webpack.prod.conf",
+                "webpack.mix",
+                "webpack.test.conf"
+            ],
+            "filename": "file_webpack.png"
+        },
+        {
+            "names": ["vagrantfile"],
+            "filename": "file_vagrant.png"
+        },
+        {
+            "names": [".travis.yml"],
+            "filename": "file_travis.png"
+        },
+        {
+            "names": ["swagger.yml", "swagger.yaml", "swagger.json", "swagger.html"],
+            "filename": "file_swagger.png"
+        },
+        {
+            "names": ["manage.py"],
+            "filename": "file_django.png"
+        },
+        {
+            "names": [
+                "dockerfile",
+                ".dockerignore",
+                "docker-compose.yml",
+                "docker-compose.ci-build",
+                "docker-compose.override",
+                "docker-compose.vs.debug",
+                "docker-compose.vs.release",
+                "docker-cloud",
+                "docker-compose.test.yml",
+                "docker-compose.test.yml"
+            ],
+            "filename": "file_docker.png"
+        },
+        {
+            "names": [".ember-cli"],
+            "filename": "file_ember.png"
+        },
+        {
+            "names": [
+                ".gitattributes",
+                ".gitconfig",
+                ".gitignore",
+                ".gitmodules",
+                ".gitkeep"
+            ],
+            "filename": "file_git.png"
+        },
+        {
+            "names": ["gruntfile", "gruntfile.babel", "gruntfile.js"],
+            "filename": "file_grunt.png"
+        },
+        {
+            "names": ["license", "license.md", "license.txt", "enc"],
+            "filename": "file_license.png"
+        },
+        {
+            "names": ["makefile", "make", "cmake"],
+            "filename": "file_makefile.png"
+        }
+    ],
+    "folders": [
+        {
+            "names": ["default"],
+            "filename": "folder_default.png"
+        },
+        {
+            "names": ["api"],
+            "filename": "folder_api.png"
+        },
+        {
+            "names": ["src", "source"],
+            "filename": "folder_src.png"
+        },
+        {
+            "names": ["style"],
+            "filename": "folder_style.png"
+        },
+        {
+            "names": ["temp", "tmp"],
+            "filename": "folder_temp.png"
+        },
+        {
+            "names": ["sass"],
+            "filename": "folder_sass.png"
+        },
+        {
+            "names": ["server"],
+            "filename": "folder_server.png"
+        },
+        {
+            "names": ["test", "tests"],
+            "filename": "folder_test.png"
+        },
+        {
+            "names": ["tool", "tools", "util", "utils"],
+            "filename": "folder_tools.png"
+        },
+        {
+            "names": ["template", "templates", "tpl", "tmpl", "html"],
+            "filename": "folder_view.png"
+        },
+        {
+            "names": ["travis", "travisci"],
+            "filename": "folder_travis.png"
+        },
+        {
+            "names": ["typescript"],
+            "filename": "folder_typescript.png"
+        },
+        {
+            "names": ["vagrant"],
+            "filename": "folder_vagrant.png"
+        },
+        {
+            "names": ["www"],
+            "filename": "folder_www.png"
+        },
+        {
+            "names": ["script", "scripts"],
+            "filename": "folder_script.png"
+        },
+        {
+            "names": ["redis"],
+            "filename": "folder_redis.png"
+        },
+        {
+            "names": ["public"],
+            "filename": "folder_public.png"
+        },
+        {
+            "names": ["private"],
+            "filename": "folder_private.png"
+        },
+        {
+            "names": ["plugin", "plugins"],
+            "filename": "folder_plugin.png"
+        },
+        {
+            "names": ["php"],
+            "filename": "folder_php.png"
+        },
+        {
+            "names": ["paket", "pakets"],
+            "filename": "folder_paket.png"
+        },
+        {
+            "names": ["package", "packages"],
+            "filename": "folder_package.png"
+        },
+        {
+            "names": ["nuget"],
+            "filename": "folder_nuget.png"
+        },
+        {
+            "names": ["node", "nodejs", "node-js", "node_js"],
+            "filename": "folder_node.png"
+        },
+        {
+            "names": ["nginx"],
+            "filename": "folder_nginx.png"
+        },
+        {
+            "names": ["mongo", "mongodb", "mongo-db", "mongo_db"],
+            "filename": "folder_mongodb.png"
+        },
+        {
+            "names": ["raven", "ravendb", "raven-db", "raven_db"],
+            "filename": "folder_ravendb.png"
+        },
+        {
+            "names": ["model", "models"],
+            "filename": "folder_model.png"
+        },
+        {
+            "names": ["meteor"],
+            "filename": "folder_meteor.png"
+        },
+        {
+            "names": ["maven"],
+            "filename": "folder_maven.png"
+        },
+        {
+            "names": ["log", "logs", "logging", "logger"],
+            "filename": "folder_log.png"
+        },
+        {
+            "names": ["local", "locals", "translate"],
+            "filename": "folder_local.png"
+        },
+        {
+            "names": ["library", "libraries", "lib", "libs"],
+            "filename": "folder_library.png"
+        },
+        {
+            "names": ["font", "fonts"],
+            "filename": "folder_fonts.png"
+        },
+        {
+            "names": ["less"],
+            "filename": "folder_less.png"
+        },
+        {
+            "names": ["include"],
+            "filename": "folder_include.png"
+        },
+        {
+            "names": ["js", "javascript"],
+            "filename": "folder_js.png"
+        },
+        {
+            "names": ["kubernetes"],
+            "filename": "folder_kubernetes.png"
+        },
+        {
+            "names": ["image", "images", "photo"],
+            "filename": "folder_images.png"
+        },
+        {
+            "names": ["idea", ".idea"],
+            "filename": "folder_idea.png"
+        },
+        {
+            "names": ["helper", "helpers"],
+            "filename": "folder_helper.png"
+        },
+        {
+            "names": ["haxelib"],
+            "filename": "folder_haxelib.png"
+        },
+        {
+            "names": ["gitlab", ".gitlab"],
+            "filename": "folder_gitlab.png"
+        },
+        {
+            "names": ["github", ".github"],
+            "filename": "folder_github.png"
+        },
+        {
+            "names": ["git", ".git"],
+            "filename": "folder_git.png"
+        },
+        {
+            "names": ["gcp"],
+            "filename": "folder_gcp.png"
+        },
+        {
+            "names": ["flow"],
+            "filename": "folder_flow.png"
+        },
+        {
+            "names": ["doc", "docs"],
+            "filename": "folder_docs.png"
+        },
+        {
+            "names": ["docker"],
+            "filename": "folder_docker.png"
+        },
+        {
+            "names": ["dist", ".dist"],
+            "filename": "folder_dist.png"
+        },
+        {
+            "names": ["debian"],
+            "filename": "folder_debian.png"
+        },
+        {
+            "names": ["db", "database"],
+            "filename": "folder_db.png"
+        },
+        {
+            "names": ["css"],
+            "filename": "folder_css.png"
+        },
+        {
+            "names": ["cfg", "config", "settings"],
+            "filename": "folder_config.png"
+        },
+        {
+            "names": ["composer"],
+            "filename": "folder_composer.png"
+        },
+        {
+            "names": ["component", "components"],
+            "filename": "folder_component.png"
+        },
+        {
+            "names": ["client", "clients"],
+            "filename": "folder_client.png"
+        },
+        {
+            "names": ["circleci"],
+            "filename": "folder_circleci.png"
+        },
+        {
+            "names": ["chef"],
+            "filename": "folder_chef.png"
+        },
+        {
+            "names": ["cake"],
+            "filename": "folder_cake.png"
+        },
+        {
+            "names": ["bower"],
+            "filename": "folder_bower.png"
+        },
+        {
+            "names": ["bin", "binary"],
+            "filename": "folder_binary.png"
+        },
+        {
+            "names": ["aws"],
+            "filename": "folder_aws.png"
+        },
+        {
+            "names": ["aurelia"],
+            "filename": "folder_aurelia.png"
+        },
+        {
+            "names": ["audio", "music", "sound"],
+            "filename": "folder_audio.png"
+        },
+        {
+            "names": ["asset", "assets"],
+            "filename": "folder_asset.png"
+        },
+        {
+            "names": ["app", "apps", "application", "applications"],
+            "filename": "folder_app.png"
+        }
+    ]
+}
