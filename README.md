@@ -84,8 +84,8 @@ extension [vscode-icons](https://github.com/vscode-icons/vscode-icons).
 ## Changes
 A full changelog is maintained in the [CAHNGELOG](https://github.com/kandziu/iTerm-ils/blob/master/CHANGELOG.md) file.
 
-## Contributing 
-**elasticsearch-partition** is an open source project and contributions are
+## Contributing
+**iTerm-ils** is an open source project and contributions are
 welcome! Check out the [Issues](https://github.com/kandziu/iTerm-ils/issues)
 page to see if your idea for a contribution has already been mentioned, and feel
 free to raise an issue or submit a pull request.
