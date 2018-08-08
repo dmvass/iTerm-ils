@@ -15,43 +15,39 @@ import (
 )
 
 const (
-	// curdir is a current directory Unix path
-	curdir = "."
+	// Curdir is a current directory Unix path
+	Curdir = "."
 	// ImgProto is an iTerm image display protocol
-	imgproto = " \033]1337;File=inline=1;height=1:%s\a"
-	// tabSize is a hardcoded tabulation size
-	tabSize = 8
+	ImgProto = " \033]1337;File=inline=1;height=1:%s\a"
+	// TabSize is a hardcoded tabulation size
+	TabSize = 8
 )
 
 // NewCommand is a command constructor
 func NewCommand(t *Theme, args []string) (*Command, error) {
 	cmd := Command{theme: t}
-
 	// Parse flags and target directory
 	for _, arg := range args {
 		if strings.HasPrefix(arg, "-") {
 			cmd.ParseFlag(arg)
-		} else {
-			cmd.Dir = arg
+			continue
 		}
+		cmd.Dir = arg
 	}
-
 	if cmd.Dir == "" {
-		cmd.Dir = curdir
+		cmd.Dir = Curdir
 	}
-
 	return &cmd, nil
 }
 
 // Command is a command to list files in Unix and Unix-like operating systems
 type Command struct {
-	theme *Theme
-
 	// Target directory
 	Dir string
-
 	// Command flags
 	LongFormat, NotSort, Revealing, ListAll, Recursion, TimeSort, HumanSize bool
+
+	theme *Theme
 }
 
 // ParseFlag is a command flags parser
@@ -110,24 +106,26 @@ func (c Command) execute(dir string) error {
 	if err != nil {
 		return err
 	}
-
 	// display files in this directory
 	c.display(files)
 
+	if !c.Recursion {
+		return nil
+	}
+
 	// walkthrough all directories and display files If Recursion is true
-	if c.Recursion {
-		for _, file := range files {
-			if file != nil && file.IsDir() {
-				nextDir := filepath.Join(dir, file.Name())
+	for _, file := range files {
+		if file == nil || !file.IsDir() {
+			continue
+		}
+		nextDir := filepath.Join(dir, file.Name())
 
-				// print displayed directory path
-				fmt.Printf("\n%s\n", nextDir)
+		// print displayed directory path
+		fmt.Printf("\n%s\n", nextDir)
 
-				err = c.execute(nextDir)
-				if err != nil {
-					return err
-				}
-			}
+		err = c.execute(nextDir)
+		if err != nil {
+			return err
 		}
 	}
 
@@ -160,115 +158,117 @@ func (c Command) readdir(dirname string) ([]os.FileInfo, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	files, err := dir.Readdir(-1)
 	dir.Close()
 	if err != nil {
 		return nil, err
 	}
-
 	if !c.NotSort {
 		c.sort(files)
 	}
-
-	if !c.ListAll {
-		for i, f := range files {
-			if strings.HasPrefix(f.Name(), ".") {
-				files[i] = nil
-			}
+	if c.ListAll {
+		return files, nil
+	}
+	for i, f := range files {
+		if strings.HasPrefix(f.Name(), ".") {
+			files[i] = nil
 		}
 	}
-
 	return files, nil
 }
 
-// getSize returns file size representation in bytes or human redable format
-func (c Command) getSize(f os.FileInfo) string {
-	if c.HumanSize {
-		return bytes(f.Size())
+// displayLong is display Unix file types, permissions, number of hard
+// links, owner, group, size, last-modified date and filename.
+func (c Command) displayLong(files []os.FileInfo) {
+	fmt.Println("total ", len(files))
+	for _, f := range files {
+		if f == nil {
+			continue
+		}
+		stat, _ := f.Sys().(*syscall.Stat_t)
+
+		// Print file permissions
+		fmt.Print(Permissions(f.Mode()))
+		fmt.Print("\t")
+
+		// Print file number of hard links
+		fmt.Printf("%4d", getNlink(stat))
+		fmt.Print("\t")
+
+		// Print file owner
+		fmt.Printf("%8s", getUser(stat))
+		fmt.Print("\t")
+
+		// Print file group
+		fmt.Printf("%8s", getGroup(stat))
+		fmt.Print("\t")
+
+		// Print file size
+		fmt.Printf("%10s", c.getSize(f))
+		fmt.Print("\t")
+
+		// Print file icon and filename
+		fmt.Print(iTermIcon(c.theme.GetIcon(f)))
+		fmt.Print(c.getFilename(f))
+		fmt.Print("\n")
 	}
-	return strconv.FormatInt(f.Size(), 10)
 }
 
-// getFilename returns file name with a character revealing the nature or not
-func (c Command) getFilename(f os.FileInfo) string {
-	if c.Revealing {
-		if f.IsDir() {
-			return fmt.Sprintf("%s/", f.Name())
+// displayBare is display only Unix file types and filenames
+func (c Command) displayBare(files []os.FileInfo) {
+	var printedSize int
+	size := lineSize()
+	for _, f := range files {
+		if f == nil {
+			continue
 		}
+		filename := c.getFilename(f)
+		icon := iTermIcon(c.theme.GetIcon(f))
+		// check that line is not full
+		if size > 0 {
+			// add filename characters count
+			printedSize += utf8.RuneCountInString(filename)
+			// add printed icon characters count
+			printedSize += 4
+
+			if printedSize > size {
+				fmt.Print("\n")
+				printedSize = 0
+			} else {
+				// Add tabulation characters count
+				printedSize += TabSize
+			}
+		}
+		// Print file icon and filename
+		fmt.Print(icon, filename)
+		fmt.Print("\t")
 	}
-	return f.Name()
+	fmt.Print("\n")
 }
 
 // display prints to stdout file result in a short or long style
 func (c Command) display(files []os.FileInfo) {
-	// display only Unix file types and filenames
-	if !c.LongFormat {
-		var printedSize int
-		size := lineSize()
-		for _, f := range files {
-			if f != nil {
-				filename := c.getFilename(f)
-				icon := iTermIcon(c.theme.GetIcon(f))
-				// check that line is not full
-				if size > 0 {
-					// add filename characters count
-					printedSize += utf8.RuneCountInString(filename)
-					// add printed icon characters count
-					printedSize += 4
-
-					if printedSize > size {
-						fmt.Print("\n")
-						printedSize = 0
-					} else {
-						// Add tabulation characters count
-						printedSize += tabSize
-					}
-				}
-				// Print file icon and filename
-				fmt.Print(icon)
-				fmt.Print(filename)
-				fmt.Print("\t")
-			}
-		}
-		fmt.Print("\n")
-		return
+	if c.LongFormat {
+		c.displayLong(files)
+	} else {
+		c.displayBare(files)
 	}
+}
 
-	// display Unix file types, permissions, number of hard links,
-	// owner, group, size, last-modified date and filename.
-	fmt.Println("total ", len(files))
-	for _, f := range files {
-		if f != nil {
-			stat, _ := f.Sys().(*syscall.Stat_t)
-
-			// Print file permissions
-			fmt.Print(permissions(f.Mode()))
-			fmt.Print("\t")
-
-			// Print file number of hard links
-			fmt.Printf("%4d", getNlink(stat))
-			fmt.Print("\t")
-
-			// Print file owner
-			fmt.Printf("%8s", getUser(stat))
-			fmt.Print("\t")
-
-			// Print file group
-			fmt.Printf("%8s", getGroup(stat))
-			fmt.Print("\t")
-
-			// Print file size
-			fmt.Printf("%10s", c.getSize(f))
-			fmt.Print("\t")
-
-			// Print file icon and filename
-			fmt.Print(iTermIcon(c.theme.GetIcon(f)))
-			fmt.Print(c.getFilename(f))
-
-			fmt.Print("\n")
-		}
+// getSize returns file size representation in bytes on human redable format
+func (c Command) getSize(f os.FileInfo) string {
+	if c.HumanSize {
+		return Bytes(f.Size())
 	}
+	return strconv.FormatInt(f.Size(), 10)
+}
+
+// getFilename returns file name with a character revealing the nature
+func (c Command) getFilename(f os.FileInfo) string {
+	if c.Revealing && f.IsDir() {
+		return fmt.Sprintf("%s/", f.Name())
+	}
+	return f.Name()
 }
 
 func lineSize() int {
@@ -327,5 +327,5 @@ func getNlink(s *syscall.Stat_t) uint16 {
 
 // iTermIcon format and returns icon regarding iTerm display image protocol
 func iTermIcon(icon string) string {
-	return fmt.Sprintf(imgproto, icon)
+	return fmt.Sprintf(ImgProto, icon)
 }

@@ -5,16 +5,16 @@ import (
 	"os"
 )
 
-// themePath is path to a theme directory
-// could be changed at a compiletion time
-var themePath string
+// ThemePath is path to a theme directory could be changed
+// at a compiletion time
+var ThemePath string
 
 func main() {
-	if themePath == "" {
-		themePath = "theme"
+	if ThemePath == "" {
+		ThemePath = "theme"
 	}
 
-	theme, err := NewTheme(themePath)
+	theme, err := NewTheme(ThemePath)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(1)

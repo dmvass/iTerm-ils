@@ -25,16 +25,16 @@ func humanateBytes(s int64, base float64, sizes []string) string {
 	return fmt.Sprintf(f, val, suffix)
 }
 
-// bytes produces a human readable representation of an EC size.
+// Bytes produces a human readable representation of an EC size.
 // bytes(82854982) -> 79 MiB
-func bytes(s int64) string {
+func Bytes(s int64) string {
 	sizes := []string{"B", "K", "M", "G", "T", "P", "E"}
 	return humanateBytes(s, 1000, sizes)
 }
 
-// permissions produces a human readable representation of file mode
+// Permissions produces a human readable representation of file mode
 // permissions(420) -> rw-r--r--
-func permissions(m os.FileMode) string {
+func Permissions(m os.FileMode) string {
 	var buf [32]byte // Mode is uint32.
 	w := 0
 

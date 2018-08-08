@@ -6,4 +6,4 @@ clean:
 
 build: clean
 	mkdir -p build
-	GOOS=darwin GOARCH=amd64 packr build -ldflags "-s -X main.version=$(VERSION) -X main.themePath=$(ILS_THEME_PATH)" -o build/$(NAME)-$(VERSION)
+	GOOS=darwin GOARCH=amd64 packr build -ldflags "-s -X main.version=$(VERSION) -X main.ThemePath=$(ILS_THEME_PATH)" -o build/$(NAME)-$(VERSION)
