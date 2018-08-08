@@ -1,5 +1,5 @@
 NAME=ils
-VERSION=$(shell git describe)
+VERSION=$(shell git describe --tags)
 
 clean:
 	rm -rf build/
