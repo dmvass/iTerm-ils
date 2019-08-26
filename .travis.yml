@@ -1,0 +1,23 @@
+language: go
+
+go: 1.11.x
+  
+cache:
+  directories:
+    - $GOPATH/src
+    - $GOPATH/pkg
+
+install:
+  - export CI=TRAVIS
+  - export GO111MODULE=on
+  - go mod download
+
+script:
+  - "go vet ./..."
+  - go test -v ./...
+  # Collect coverage reports
+  - go list -f '{{if len .TestGoFiles}}"go test -coverprofile={{.Dir}}/.coverprofile {{.ImportPath}}"{{end}}' ./... | xargs -i sh -c {}
+
+after_success:
+  # Send coverage reports to Codecov
+  - bash <(curl -s https://codecov.io/bash) -f coverprofile.txt

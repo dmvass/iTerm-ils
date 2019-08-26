@@ -10,11 +10,10 @@ terminal. You can use it in other terminal emulators too but without file icons.
 This tool working much more slower than standard `ls` implementation but it's
 only an iTerm image protocol feature.
 
-![ils bare](/images/bare.png?raw=true)
-
-![ils long](/images/long.png?raw=true)
+![screenshot](screenshot.png?raw=true)
 
 ## More about Iterm File Transfers
+
 By omitting the inline argument (or setting its value to 0), files will be
 downloaded and saved in the Downloads folder instead of being displayed inline.
 Any kind of file may be downloaded, but only images will display inline. Any
@@ -24,22 +23,26 @@ Downloads will be added to the menu bar after a download begins, where progress
 can be monitored and the file can be located, opened, or removed.
 
 ## Instalation
+
 ```bash
-go get -u github.com/kandziu/iTerm-ils
+go get -u github.com/dmvass/iTerm-ils
 ```
 
 You can easy build binary file:
+
 ```bash
 make build
 ```
 
 If you want to build binary file with your custom theme you can use `ILS_THEME_PATH`
 environment variable
+
 ```bash
 ILS_THEME_PATH=path/to/your/theme... make build
 ```
 
 ## How it works
+
 Unix and Unix-like operating systems maintain the idea of a current working
 directory, that is, where one is currently positioned in the hierarchy of
 directories. When invoked without any arguments, `ils` lists the files in the
@@ -64,7 +67,8 @@ The most common options to reveal this information or change the list of files a
 | -t |sort the list of files by modification time|
 | -h |print sizes in human readable format|
 
-### Example commands:
+### Example commands
+
 ```bash
 $ ils -l
 drwxr--r--   1 fred  editors   4096  drafts
@@ -78,14 +82,17 @@ edit*
 ```
 
 ## Theme
+
 Default theme of this tool was inspired by the my favorite VSCODE file icons
-extension [vscode-icons](https://github.com/vscode-icons/vscode-icons). 
+extension [vscode-icons](https://github.com/vscode-icons/vscode-icons).
 
 ## Changes
-A full changelog is maintained in the [CAHNGELOG](https://github.com/kandziu/iTerm-ils/blob/master/CHANGELOG.md) file.
+
+A full changelog is maintained in the [CAHNGELOG](https://github.com/dmvass/iTerm-ils/blob/master/CHANGELOG.md) file.
 
 ## Contributing
+
 **iTerm-ils** is an open source project and contributions are
-welcome! Check out the [Issues](https://github.com/kandziu/iTerm-ils/issues)
+welcome! Check out the [Issues](https://github.com/dmvass/iTerm-ils/issues)
 page to see if your idea for a contribution has already been mentioned, and feel
 free to raise an issue or submit a pull request.

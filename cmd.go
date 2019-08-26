@@ -15,13 +15,21 @@ import (
 )
 
 const (
-	// Curdir is a current directory Unix path
-	Curdir = "."
-	// ImgProto is an iTerm image display protocol
-	ImgProto = " \033]1337;File=inline=1;height=1:%s\a"
-	// TabSize is a hardcoded tabulation size
-	TabSize = 8
+	defaultLocation = "."
+	imgProto        = " \033]1337;File=inline=1;height=1:%s\a"
+	tabSize         = 24
 )
+
+// Command is a command to list files in Unix and Unix-like operating systems
+type Command struct {
+	// Target directory location
+	location string
+
+	// Command flags
+	LongFormat, NotSort, Revealing, ListAll, Recursion, TimeSort, HumanSize bool
+
+	theme *Theme
+}
 
 // NewCommand is a command constructor
 func NewCommand(t *Theme, args []string) (*Command, error) {
@@ -29,32 +37,22 @@ func NewCommand(t *Theme, args []string) (*Command, error) {
 	// Parse flags and target directory
 	for _, arg := range args {
 		if strings.HasPrefix(arg, "-") {
-			cmd.ParseFlag(arg)
+			cmd.parseFlag(arg)
 			continue
 		}
-		cmd.Dir = arg
+		cmd.location = arg
 	}
-	if cmd.Dir == "" {
-		cmd.Dir = Curdir
+	if cmd.location == "" {
+		cmd.location = defaultLocation
 	}
 	return &cmd, nil
 }
 
-// Command is a command to list files in Unix and Unix-like operating systems
-type Command struct {
-	// Target directory
-	Dir string
-	// Command flags
-	LongFormat, NotSort, Revealing, ListAll, Recursion, TimeSort, HumanSize bool
-
-	theme *Theme
-}
-
-// ParseFlag is a command flags parser
+// parseFlag is a command flags parser
 //
 // This method parse flags which starts with '-' and can parse as single
 // '-l -a' and as grouped flags '-la'.
-func (c *Command) ParseFlag(args string) int {
+func (c *Command) parseFlag(args string) int {
 	matched := 0
 	for _, f := range args[1:] {
 		switch string(f) {
@@ -134,7 +132,7 @@ func (c Command) execute(dir string) error {
 
 // Execute command and display results
 func (c Command) Execute() error {
-	return c.execute(c.Dir)
+	return c.execute(c.location)
 }
 
 // sort files in directory by last modification date or filename
@@ -236,7 +234,7 @@ func (c Command) displayBare(files []os.FileInfo) {
 				printedSize = 0
 			} else {
 				// Add tabulation characters count
-				printedSize += TabSize
+				printedSize += tabSize
 			}
 		}
 		// Print file icon and filename
@@ -327,5 +325,5 @@ func getNlink(s *syscall.Stat_t) uint16 {
 
 // iTermIcon format and returns icon regarding iTerm display image protocol
 func iTermIcon(icon string) string {
-	return fmt.Sprintf(ImgProto, icon)
+	return fmt.Sprintf(imgProto, icon)
 }

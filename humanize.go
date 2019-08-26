@@ -12,7 +12,7 @@ func logn(n, b float64) float64 {
 
 func humanateBytes(s int64, base float64, sizes []string) string {
 	if s < 10 {
-		return fmt.Sprintf("%d B", s)
+		return fmt.Sprintf("%dB", s)
 	}
 	e := math.Floor(logn(float64(s), base))
 	suffix := sizes[int(e)]
@@ -40,7 +40,7 @@ func Permissions(m os.FileMode) string {
 
 	const rwx = "rwxrwxrwx"
 	for i, c := range rwx {
-		if m&(1<<uint(9-1-i)) != 0 {
+		if m&(1<<uint(8-i)) != 0 {
 			buf[w] = byte(c)
 		} else {
 			buf[w] = '-'
