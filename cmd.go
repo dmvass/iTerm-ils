@@ -320,7 +320,7 @@ func getNlink(s *syscall.Stat_t) uint16 {
 	if s == nil {
 		return 0
 	}
-	return s.Nlink
+	return uint16(s.Nlink)
 }
 
 // iTermIcon format and returns icon regarding iTerm display image protocol
