@@ -17,7 +17,7 @@ import (
 const (
 	defaultLocation = "."
 	imgProto        = " \033]1337;File=inline=1;height=1:%s\a"
-	tabSize         = 24
+	tabSize         = 8
 )
 
 // Command is a command to list files in Unix and Unix-like operating systems
